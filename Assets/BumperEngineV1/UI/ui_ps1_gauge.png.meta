@@ -1,0 +1,1002 @@
+fileFormatVersion: 2
+guid: 6bddbb3053d359947951e0804012dc0a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: ui_ps1_gauge_0
+  - first:
+      213: 21300002
+    second: ui_ps1_gauge_1
+  - first:
+      213: 21300004
+    second: ui_ps1_gauge_2
+  - first:
+      213: 21300006
+    second: ui_ps1_gauge_3
+  - first:
+      213: 21300008
+    second: boost_gauge
+  - first:
+      213: 21300010
+    second: boost_gauge_end
+  - first:
+      213: 21300012
+    second: ui_ps1_gauge_6
+  - first:
+      213: 21300014
+    second: ui_ps1_gauge_7
+  - first:
+      213: 21300016
+    second: ui_ps1_gauge_8
+  - first:
+      213: 21300018
+    second: ui_ps1_gauge_9
+  - first:
+      213: 21300020
+    second: ring_energy_text
+  - first:
+      213: 21300022
+    second: ui_ps1_gauge_11
+  - first:
+      213: 21300024
+    second: ui_ps1_gauge_12
+  - first:
+      213: 21300026
+    second: ui_ps1_gauge_13
+  - first:
+      213: 21300028
+    second: ui_ps1_gauge_14
+  - first:
+      213: 21300030
+    second: boost_gauge_start
+  - first:
+      213: 21300032
+    second: speed_0
+  - first:
+      213: 21300034
+    second: speed_1
+  - first:
+      213: 21300036
+    second: speed_2
+  - first:
+      213: 21300038
+    second: speed_color_0
+  - first:
+      213: 21300040
+    second: speed_color_1
+  - first:
+      213: 21300042
+    second: speed_color_2
+  - first:
+      213: 21300044
+    second: speed_color_3
+  - first:
+      213: 21300046
+    second: speed_end
+  - first:
+      213: 21300048
+    second: boost_gauge_border
+  - first:
+      213: 21300050
+    second: boost_gauge_border_end
+  - first:
+      213: 21300052
+    second: ring_energy
+  - first:
+      213: 21300054
+    second: speed
+  - first:
+      213: 21300056
+    second: boost_gauge_color_0
+  - first:
+      213: 21300058
+    second: boost_gauge_color_1
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ui_ps1_gauge_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 65
+        width: 162
+        height: 62
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -85, y: -20.5}
+        - {x: -88, y: -24.5}
+        - {x: -90, y: -30.5}
+        - {x: -91, y: -40.5}
+        - {x: -74, y: -40.5}
+        - {x: -73, y: -35.5}
+        - {x: -72, y: -28.5}
+        - {x: -81, y: -21.5}
+      - - {x: -47, y: -23.5}
+        - {x: -46, y: -22.5}
+        - {x: -44, y: -22.5}
+        - {x: -48, y: -23.5}
+        - {x: -52, y: -27.5}
+        - {x: -44, y: -40.5}
+        - {x: 30, y: -40.5}
+        - {x: 93, y: 28.5}
+        - {x: 93, y: 30.5}
+        - {x: 87, y: 40.5}
+        - {x: -80, y: 40.5}
+        - {x: -93, y: 38.5}
+        - {x: -93, y: -13.5}
+        - {x: -73, y: -37.5}
+        - {x: -70, y: -40.5}
+        - {x: -57, y: -40.5}
+        - {x: -50, y: -33.5}
+        - {x: -50, y: -31.5}
+        - {x: -55, y: -23.5}
+      - - {x: -57, y: 10.5}
+        - {x: -53, y: 10.5}
+        - {x: -46, y: 0.5}
+        - {x: -49, y: -4.5}
+      - - {x: -85, y: 9.5}
+        - {x: -85, y: 14.5}
+        - {x: -84, y: 5.5}
+        - {x: -86, y: 5.5}
+      - - {x: 52, y: 22.5}
+        - {x: 70, y: 9.5}
+        - {x: 38, y: 8.5}
+        - {x: 39, y: 8.5}
+      - - {x: -79, y: 22.5}
+        - {x: -74, y: 28.5}
+      - - {x: -66, y: 32.5}
+        - {x: -57, y: 34.5}
+        - {x: -57, y: 30.5}
+        - {x: -63, y: 31.5}
+      - - {x: -50, y: 35.5}
+        - {x: -43, y: 35.5}
+        - {x: -43, y: 30.5}
+        - {x: -50, y: 30.5}
+      - - {x: -36, y: 35.5}
+        - {x: -29, y: 35.5}
+        - {x: -29, y: 30.5}
+        - {x: -36, y: 30.5}
+      - - {x: -22, y: 35.5}
+        - {x: -15, y: 35.5}
+        - {x: -15, y: 30.5}
+        - {x: -22, y: 30.5}
+      - - {x: -8, y: 35.5}
+        - {x: -1, y: 35.5}
+        - {x: -1, y: 30.5}
+        - {x: -8, y: 30.5}
+      - - {x: 6, y: 35.5}
+        - {x: 13, y: 35.5}
+        - {x: 13, y: 30.5}
+        - {x: 6, y: 30.5}
+      - - {x: 20, y: 35.5}
+        - {x: 27, y: 35.5}
+        - {x: 27, y: 30.5}
+        - {x: 20, y: 30.5}
+      - - {x: 34, y: 35.5}
+        - {x: 41, y: 35.5}
+        - {x: 41, y: 30.5}
+        - {x: 34, y: 30.5}
+      - - {x: 48, y: 35.5}
+        - {x: 59, y: 34.5}
+        - {x: 55, y: 30.5}
+        - {x: 48, y: 30.5}
+      physicsShape:
+      - - {x: -85, y: -20.5}
+        - {x: -88, y: -24.5}
+        - {x: -90, y: -30.5}
+        - {x: -91, y: -40.5}
+        - {x: -74, y: -40.5}
+        - {x: -73, y: -35.5}
+        - {x: -72, y: -28.5}
+        - {x: -81, y: -21.5}
+      - - {x: -87, y: 40.5}
+        - {x: -93, y: 15.5}
+        - {x: -93, y: -11.5}
+        - {x: -79, y: -40.5}
+        - {x: -34, y: -40.5}
+        - {x: 77, y: -4.5}
+        - {x: 93, y: 19.5}
+        - {x: 93, y: 35.5}
+        - {x: 85, y: 40.5}
+      - - {x: -42, y: -20.5}
+        - {x: -51, y: -25.5}
+        - {x: -51, y: -30.5}
+        - {x: -44, y: -40.5}
+        - {x: 28, y: -40.5}
+        - {x: 44, y: -25.5}
+        - {x: 44, y: -20.5}
+      - - {x: -62, y: -0.5}
+        - {x: -58, y: 10.5}
+        - {x: -50, y: 11.5}
+        - {x: -45, y: -0.5}
+      - - {x: -25, y: 5.5}
+        - {x: -30, y: 19.5}
+        - {x: 38, y: 23.5}
+        - {x: 13, y: -1.5}
+      - - {x: -85, y: 12.5}
+        - {x: -81, y: 13.5}
+        - {x: -83, y: 7.5}
+        - {x: -87, y: 5.5}
+      - - {x: 51, y: 22.5}
+        - {x: 70, y: 9.5}
+        - {x: 37, y: 8.5}
+        - {x: 38, y: 8.5}
+      - - {x: -81, y: 20.5}
+        - {x: -73, y: 29.5}
+        - {x: -70, y: 25.5}
+        - {x: -77, y: 19.5}
+      - - {x: -67, y: 32.5}
+        - {x: -57, y: 35.5}
+        - {x: -58, y: 31.5}
+        - {x: -64, y: 30.5}
+      - - {x: -50, y: 35.5}
+        - {x: -43, y: 35.5}
+        - {x: -43, y: 30.5}
+        - {x: -50, y: 30.5}
+      - - {x: -36, y: 35.5}
+        - {x: -29, y: 35.5}
+        - {x: -29, y: 30.5}
+        - {x: -36, y: 30.5}
+      - - {x: -22, y: 35.5}
+        - {x: -15, y: 35.5}
+        - {x: -15, y: 30.5}
+        - {x: -22, y: 30.5}
+      - - {x: -8, y: 35.5}
+        - {x: -1, y: 35.5}
+        - {x: -1, y: 30.5}
+        - {x: -8, y: 30.5}
+      - - {x: 6, y: 35.5}
+        - {x: 13, y: 35.5}
+        - {x: 13, y: 30.5}
+        - {x: 6, y: 30.5}
+      - - {x: 20, y: 35.5}
+        - {x: 27, y: 35.5}
+        - {x: 27, y: 30.5}
+        - {x: 20, y: 30.5}
+      - - {x: 34, y: 35.5}
+        - {x: 41, y: 35.5}
+        - {x: 41, y: 30.5}
+        - {x: 34, y: 30.5}
+      - - {x: 48, y: 35.5}
+        - {x: 61, y: 36.5}
+        - {x: 55, y: 30.5}
+        - {x: 48, y: 30.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ps1_gauge_1
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 91
+        width: 42
+        height: 34
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 17}
+        - {x: -21, y: 12}
+        - {x: -21, y: -14}
+        - {x: -18, y: -17}
+        - {x: 21, y: -17}
+        - {x: 21, y: 16}
+        - {x: 17, y: 17}
+      physicsShape:
+      - - {x: -16, y: 17}
+        - {x: -21, y: 13}
+        - {x: -21, y: -17}
+        - {x: 21, y: -17}
+        - {x: 21, y: 16}
+        - {x: 19, y: 17}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ps1_gauge_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 24
+        width: 23
+        height: 22
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 11}
+        - {x: -11.5, y: -11}
+        - {x: 11.5, y: -11}
+        - {x: 11.5, y: 11}
+      physicsShape:
+      - - {x: -11.5, y: 11}
+        - {x: -11.5, y: -11}
+        - {x: 11.5, y: -11}
+        - {x: 11.5, y: 11}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ps1_gauge_3
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 44
+        width: 49
+        height: 31
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.5, y: 15.5}
+        - {x: -24.5, y: 12.5}
+        - {x: -24.5, y: -15.5}
+        - {x: 7.5, y: -15.5}
+        - {x: 15.5, y: -12.5}
+        - {x: 24.5, y: 0.5}
+        - {x: 24.5, y: 15.5}
+      physicsShape:
+      - - {x: -24.5, y: 15.5}
+        - {x: -24.5, y: -10.5}
+        - {x: 3.5, y: -10.5}
+        - {x: 24.5, y: 10.5}
+        - {x: 24.5, y: 15.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boost_gauge_end
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 23
+        width: 21
+        height: 20
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 10}
+        - {x: -10.5, y: -10}
+        - {x: -6.5, y: -10}
+        - {x: 10.5, y: 7}
+        - {x: 10.5, y: 10}
+      physicsShape:
+      - - {x: -10.5, y: 10}
+        - {x: -10.5, y: -10}
+        - {x: -6.5, y: -10}
+        - {x: 10.5, y: 7}
+        - {x: 10.5, y: 10}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ps1_gauge_6
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 32
+        width: 11
+        height: 11
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: 5.5}
+        - {x: -5.5, y: -5.5}
+        - {x: 5.5, y: -5.5}
+        - {x: 5.5, y: 5.5}
+      physicsShape:
+      - - {x: -5.5, y: 5.5}
+        - {x: -5.5, y: -5.5}
+        - {x: 5.5, y: -5.5}
+        - {x: 5.5, y: 5.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ps1_gauge_7
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 32
+        width: 11
+        height: 11
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: 5.5}
+        - {x: -5.5, y: -5.5}
+        - {x: 5.5, y: -5.5}
+        - {x: 5.5, y: 5.5}
+      physicsShape:
+      - - {x: -5.5, y: 5.5}
+        - {x: -5.5, y: -5.5}
+        - {x: 5.5, y: -5.5}
+        - {x: 5.5, y: 5.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ps1_gauge_8
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 28
+        width: 30
+        height: 13
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 6.5}
+        - {x: -7, y: -6.5}
+        - {x: 15, y: -6.5}
+        - {x: 15, y: 6.5}
+      - - {x: -15, y: 5.5}
+        - {x: -15, y: -5.5}
+        - {x: -11, y: -5.5}
+        - {x: -9, y: -3.5}
+        - {x: -9, y: 3.5}
+        - {x: -11, y: 5.5}
+      physicsShape:
+      - - {x: -7, y: 6.5}
+        - {x: -7, y: -6.5}
+        - {x: 7, y: -6.5}
+        - {x: 15, y: 1.5}
+        - {x: 15, y: 5.5}
+        - {x: 14, y: 6.5}
+      - - {x: -15, y: 5.5}
+        - {x: -15, y: -5.5}
+        - {x: -12, y: -5.5}
+        - {x: -10, y: -3.5}
+        - {x: -10, y: 3.5}
+        - {x: -12, y: 5.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ps1_gauge_9
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 20
+        width: 39
+        height: 7
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: 3.5}
+        - {x: -19.5, y: -3.5}
+        - {x: 19.5, y: -3.5}
+        - {x: 19.5, y: 3.5}
+      physicsShape:
+      - - {x: -19.5, y: 3.5}
+        - {x: -19.5, y: -3.5}
+        - {x: 19.5, y: -3.5}
+        - {x: 19.5, y: 3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ps1_gauge_12
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 10
+        width: 49
+        height: 8
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.5, y: 4}
+        - {x: -24.5, y: -4}
+        - {x: 24.5, y: -4}
+        - {x: 24.5, y: 4}
+      physicsShape:
+      - - {x: -24.5, y: 4}
+        - {x: -24.5, y: -4}
+        - {x: 24.5, y: -4}
+        - {x: 24.5, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ps1_gauge_14
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 0
+        width: 39
+        height: 9
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: 4.5}
+        - {x: -19.5, y: -4.5}
+        - {x: 19.5, y: -4.5}
+        - {x: 19.5, y: 4.5}
+      physicsShape:
+      - - {x: -19.5, y: 4.5}
+        - {x: -19.5, y: -4.5}
+        - {x: 19.5, y: -4.5}
+        - {x: 19.5, y: 4.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boost_gauge_start
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 20
+        height: 20
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 44
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 44
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed_2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 44
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed_color_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 60
+        width: 57
+        height: 4
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed_color_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 56
+        width: 57
+        height: 4
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed_color_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 52
+        width: 57
+        height: 4
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed_color_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 57
+        height: 4
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed_end
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 52
+        width: 11
+        height: 12
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boost_gauge_border
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 65
+        width: 2
+        height: 62
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boost_gauge_border_end
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 65
+        width: 22
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ring_energy
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 133
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 76
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boost_gauge_color_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 20
+        width: 200
+        height: 2
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boost_gauge_color_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 17
+        width: 161
+        height: 2
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 1, z: 0, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

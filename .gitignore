@@ -1,0 +1,17 @@
+# Folders
+Saves
+Builds
+Temp
+Logs
+Library
+UnityPackageManager
+UserSettings
+obj
+.vs
+.vscode
+
+# Files
+.vsconfig
+*.csproj
+*.sln
+*.keystore

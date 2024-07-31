@@ -12,7 +12,7 @@ public class SpawnCharacter : MonoBehaviour {
 		if (GameObject.Find ("CharacterSelector") != null) {
 			PlayerObject = GameObject.Find ("CharacterSelector").GetComponent<CharacterSelect>().DesiredCharacter;
 		}
-		GameObject Player = Instantiate (PlayerObject, transform.position, transform.rotation);
+		GameObject Player = Instantiate(PlayerObject, transform.position, Quaternion.Euler(Vector3.zero));
         if (GameObject.Find ("CharacterSelector") != null) {
 			Destroy (GameObject.Find ("CharacterSelector"));
 		}

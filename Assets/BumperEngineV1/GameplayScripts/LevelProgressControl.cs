@@ -59,7 +59,8 @@ public class LevelProgressControl : MonoBehaviour {
             File.WriteAllText("Saves/CurrentProgress.json", progressData);
             Debug.Log(progressData);
         }
-        else{
+        else
+        {
             transform.position = new Vector3(progress.posX, progress.posY, progress.posZ);
             transform.rotation = Quaternion.Euler(progress.rotX, progress.rotY, progress.rotZ);
         }
@@ -175,6 +176,7 @@ public class LevelProgressControl : MonoBehaviour {
             GetComponent<Action02_Homing>().enabled = false;
             GetComponent<Action03_SpinDash>().enabled = false;
             GetComponent<Action04_Hurt>().enabled = false;
+            Cam.Cam.GetComponent<Camera>().fieldOfView = Cam.Cam.InitialFieldOfView;
             Cam.Cam.enabled = false;
             col.GetComponent<AudioSource>().clip = GoalRingTouchingSound;
             col.GetComponent<AudioSource>().loop = false;

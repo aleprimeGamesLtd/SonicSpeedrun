@@ -1,10 +1,28 @@
 fileFormatVersion: 2
 guid: 81f5b87e3efeb2a439ba80608dc9ee5b
-timeCreated: 1478454913
-licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Player: {instanceID: 0}
+  - Source2: {instanceID: 0}
+  - Source3: {instanceID: 0}
+  - Source4: {instanceID: 0}
+  - Jumping: {instanceID: 0}
+  - AirDash: {instanceID: 0}
+  - HomingAttack: {instanceID: 0}
+  - Skidding: {instanceID: 0}
+  - Spin: {instanceID: 0}
+  - SpinDash: {instanceID: 0}
+  - SpinDashRelease: {instanceID: 0}
+  - BounceStart: {instanceID: 0}
+  - BounceImpact: {instanceID: 0}
+  - StompImpact: {instanceID: 0}
+  - GrindStart: {fileID: 8300000, guid: 462e3ef2de503ca4cb3c47e40acf578b, type: 3}
+  - RingLoss: {instanceID: 0}
+  - Die: {instanceID: 0}
+  - Spiked: {instanceID: 0}
+  - DieVoice: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -17,11 +17,11 @@ public class SonicEffectsControl : MonoBehaviour {
             RunningDust.Emit(Random.Range(0,20));
         }
 
-		if (Player.rigidbody.velocity.sqrMagnitude > SpeedLinesThreshold && Player.Grounded && SpeedLines != null && SpeedLines.isPlaying == false) 
+		if (Player.Actions.Action00.interactions.boosting && SpeedLines != null && SpeedLines.isPlaying == false) 
 		{
 			SpeedLines.Play ();
 		} 
-		else if (Player.rigidbody.velocity.sqrMagnitude < SpeedLinesThreshold && SpeedLines.isPlaying == true || (!Player.Grounded)) 
+		else if (!Player.Actions.Action00.interactions.boosting && SpeedLines.isPlaying == true) 
 		{
 			SpeedLines.Stop ();
 		}

@@ -17,11 +17,12 @@ public class CameraControl : MonoBehaviour {
         {
             if(col.GetComponent<CameraTriggerData>() != null)
             {
+                transform.rotation = Quaternion.Euler(Vector3.zero);
                 if (col.GetComponent<CameraTriggerData>().Type == TriggerType.LockToDirection)
                 {
                     Vector3 dir = col.transform.forward;
                     Cam.SetCamera(dir, 2f, col.GetComponent<CameraTriggerData>().CameraAltitude);
-                    Cam.RotateDirection(dir, 1, col.GetComponent<CameraTriggerData>().CameraAltitude);
+                    Cam.RotateDirection(dir, 10, col.GetComponent<CameraTriggerData>().CameraAltitude);
                     Cam.Locked = true;
                     if (col.GetComponent<CameraTriggerData>().changeDistance)
                     {
@@ -41,7 +42,7 @@ public class CameraControl : MonoBehaviour {
                 {
                     Vector3 dir = col.transform.forward;
                     Cam.SetCamera(dir, 2.5f, col.GetComponent<CameraTriggerData>().CameraAltitude);
-                    Cam.RotateDirection(dir, 1, col.GetComponent<CameraTriggerData>().CameraAltitude);
+                    Cam.RotateDirection(dir, 10, col.GetComponent<CameraTriggerData>().CameraAltitude);
                     if (!col.GetComponent<CameraTriggerData>().changeDistance)
                     {
                         Cam.CameraMaxDistance = InitialDistance;
@@ -66,7 +67,7 @@ public class CameraControl : MonoBehaviour {
 					Cam.Locked = false;
 					Vector3 dir = col.transform.forward;
 					Cam.SetCamera(dir, 2.5f, col.GetComponent<CameraTriggerData>().CameraAltitude);
-                    Cam.RotateDirection(dir, 1, col.GetComponent<CameraTriggerData>().CameraAltitude);
+                    Cam.RotateDirection(dir, 10, col.GetComponent<CameraTriggerData>().CameraAltitude);
                 }
 			}
 		}

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Rail_Interaction : MonoBehaviour {
 
@@ -7,11 +8,13 @@ public class Rail_Interaction : MonoBehaviour {
     PlayerBhysics Player;
     ActionManager Actions;
     public Animator CharacterAnimator;
+    AudioSource Sound;
 
     public int currentSeg { get; set; }
     float transition = 1;
+    bool backwards;
     bool isCompleted;
-    Quaternion CharRot;
+    Vector3 CharRot;
     Vector3[] currentRot;
     int railActiveCount;
     Vector3 Speed;
@@ -24,20 +27,25 @@ public class Rail_Interaction : MonoBehaviour {
 
     void FixedUpdate()
     {
-        railActiveCount += 1;
 
         if (rail != null)
         {
+            railActiveCount += 1;
 
             //Get Out of rail
             if(Actions.Action == 1)
             {
+                if (Sound != null)
+                {
+                    Sound.Stop();
+                }
                 rail = null;
-                Player.rigidbody.velocity = 
+                Player.rigidbody.velocity =
                     (CharacterAnimator.transform.up * Actions.Action01.JumpSpeed * 4) +
                     (CharacterAnimator.transform.forward * Speed.magnitude);
             }
-            else{
+            else
+            {
                 OnRail(Speed.magnitude);
             }
 
@@ -48,7 +56,7 @@ public class Rail_Interaction : MonoBehaviour {
     {
         if (rail != null)
         {
-            if (Input.GetButton("A") && railActiveCount > 10)
+            if (Input.GetButtonDown("A"))
             {
                 Actions.Action01.InitialEvents();
                 Actions.ChangeAction(1);
@@ -68,38 +76,71 @@ public class Rail_Interaction : MonoBehaviour {
             Speed = CharacterAnimator.transform.forward * speed;
             Player.rigidbody.velocity = Speed;
             railActiveCount = 0;
+            if (Sound != null)
+            {
+                Sound.Stop();
+            }
             rail = null;
             return;
         }
+        else
+        {
+            if (!backwards)
+            {
+                currentSeg += ((int)speed / 25);
+                CharacterAnimator.transform.rotation = Quaternion.Euler(CharRot);
+            }
+            else
+            {
+                currentSeg -= ((int)speed / 25);
+                CharacterAnimator.transform.rotation = Quaternion.Euler(-CharRot.x, CharRot.y - 180, -CharRot.z);
+            }
 
-        currentSeg += ((int)speed / 50) * (int)transition;
+            CharRot = rail.LinearRotation(currentSeg);
 
-        Vector3 CharRot = rail.LinearRotation(currentSeg);
-
-        transform.position = rail.LinearPosition(currentSeg);
-        CharacterAnimator.SetInteger("Action", 5);
-        CharacterAnimator.transform.rotation = Quaternion.Euler(CharRot);
-        transform.rotation = Quaternion.Euler(CharRot);
-        Player.rigidbody.velocity = Vector3.zero;
+            transform.position = rail.LinearPosition(currentSeg);
+            CharacterAnimator.SetInteger("Action", 5);
+            Actions.Action00.interactions.Cam.RotateDirection(CharacterAnimator.transform.forward, 2, Actions.Action00.interactions.Cam.HeightToLock);
+            Player.rigidbody.velocity = Vector3.zero;
+            Player.Grounded = true;
+        }
     }
 
     public void OnTriggerEnter(Collider col)
     {
+        Vector3 PrevCharRot = CharacterAnimator.transform.forward;
+
         if(col.gameObject.tag == "Rail")
         {
             if(col.gameObject.transform.parent.GetComponent<Rail>() != null)
             {
-                if (railActiveCount > 3 && rail == null)
+                if (rail == null)
                 {
+                    Sound = col.transform.parent.GetComponent<AudioSource>();
+                    if (Sound != null && !Sound.isPlaying)
+                    {
+                        Sound.Play();
+                        col.GetComponent<AudioSource>().Play();
+                    }
                     Speed = Player.rigidbody.velocity;
                     rail = col.gameObject.transform.parent.GetComponent<Rail>();
                     currentSeg = GetClosestPos(col.gameObject.transform.parent.GetComponent<Rail>().RailArray, transform.position);
-                    
+
+                    Debug.Log(Vector3.Angle(PrevCharRot, col.transform.forward));
+                    if (Vector3.Angle(PrevCharRot, col.transform.forward) < 90)
+                    {
+                        backwards = false;
+                    }
+                    else
+                    {
+                        backwards = true;
+                    }
+
                     if (Actions.Action != 5)
                     {
                         Actions.Action01.JumpBall.SetActive(false);
                         Actions.ChangeAction(5);
-                        railActiveCount = 0;
+                        CharacterAnimator.SetBool("Grounded", true);
                     }
                 }
             }

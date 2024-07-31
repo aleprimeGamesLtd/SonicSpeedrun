@@ -15,11 +15,11 @@ public class SpeedCounter : MonoBehaviour
 
         if (SpeedAmmount != null)
         {
-            SpeedAmmount.text = Player.rigidbody.velocity.magnitude.ToString("F0") + " m/s";
+            SpeedAmmount.text = Player.Actions.Action00.interactions.boostAmount.ToString("F0") + " %";
         }
         if (fill != null)
         {
-            fill.fillAmount = Player.rigidbody.velocity.magnitude / Player.MaxSpeed;
+            fill.fillAmount = Player.Actions.Action00.interactions.boostAmount / 100;
         }
     }
 }

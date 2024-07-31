@@ -44,7 +44,7 @@ public class PlayerBhysics : MonoBehaviour {
     public Vector3 CollisionPointsNormal { get; set; }
 
     public Rigidbody rigidbody { get; set; }
-    ActionManager Actions;
+    public ActionManager Actions { get; private set; }
 
     public Vector3 Gravity;
     public Vector3 MoveInput { get; set; }
@@ -62,6 +62,7 @@ public class PlayerBhysics : MonoBehaviour {
 
     public float RayToGroundDistance = 0.5f;
     public float LTtime;
+    public float GroundedTime { get; set; }
 
     public DebugUI Debui;
 
@@ -124,7 +125,7 @@ public class PlayerBhysics : MonoBehaviour {
         //Rolling
         if (rigidbody.velocity.sqrMagnitude > RollingStartSpeed && Grounded)
         {
-            if (Input.GetAxisRaw("Triggers") > 0)
+            if (Input.GetAxisRaw("L2") > 0)
             {
                 isRolling = true;
                 LTtime += 1;
@@ -137,7 +138,6 @@ public class PlayerBhysics : MonoBehaviour {
         }
         else
         {
-            isRolling = false;
             LTtime = 0;
         }
     }
@@ -209,6 +209,7 @@ public class PlayerBhysics : MonoBehaviour {
             KeepNormal = GroundNormal;
             KeepNormalCounter = 0;
             GroundMovement();
+            GroundedTime += 1;
         }
         else
         {
@@ -217,21 +218,20 @@ public class PlayerBhysics : MonoBehaviour {
             if (KeepNormalCounter < 15)
             {
                 transform.rotation = Quaternion.FromToRotation(transform.up, KeepNormal) * transform.rotation;
-                Debug.Log(KeepNormal.ToString("f2"));
+                //Debug.Log(KeepNormal.ToString("f2"));
                 if (Actions.Action != 1)
                 {
                     Grounded = true;
-                    Actions.Action00.CharacterAnimator.SetBool("Grounded", true);
                 }
                 GroundMovement();
             }
             else
             {
-                Grounded = false;
                 transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
-                //GroundNormal = Vector3.zero;
-                Actions.Action00.CharacterAnimator.SetBool("Grounded", false);
+                GroundNormal = Vector3.zero;
+                Grounded = false;
                 AirMovement();
+                GroundedTime = 0;
             }
         }
 

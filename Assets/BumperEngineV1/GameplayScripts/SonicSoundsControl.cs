@@ -20,7 +20,9 @@ public class SonicSoundsControl : MonoBehaviour {
     public AudioClip SpinDashRelease;
 	public AudioClip BounceStart;
 	public AudioClip BounceImpact;
+    public AudioClip Boost;
 	public AudioClip StompImpact;
+    public AudioClip GrindStart;
     public AudioClip RingLoss;
     public AudioClip Die;
     public AudioClip Spiked;
@@ -86,6 +88,11 @@ public class SonicSoundsControl : MonoBehaviour {
         Source2.clip = Skidding;
         Source2.Play();
     }
+    public void BoostSound()
+    {
+        Source2.clip = Boost;
+        Source2.Play();
+    }
     public void HomingAttackSound()
     {
         Source2.clip = HomingAttack;
@@ -124,10 +131,19 @@ public class SonicSoundsControl : MonoBehaviour {
 		Source2.clip = StompImpact;
 		Source2.Play();
 	}
+    public void GrindSound()
+    {
+        Source2.clip = GrindStart;
+        Source2.Play();
+    }
     public void SpinDashReleaseSound()
     {
-        Source2.clip = SpinDashRelease;
-        Source2.Play();
+        Source3.clip = SpinDashRelease;
+        Source3.Play();
+        if (Source2.clip == SpinDash)
+        {
+            Source2.Stop();
+        }
     }
     public void RingLossSound()
     {

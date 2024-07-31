@@ -15,7 +15,6 @@ public class Objects_Interaction : MonoBehaviour {
     [Header("For Rings, Springs and so on")]
 
     public PlayerBhysics Player;
-    public Transform PlayerSkin;
     public HedgeCamera Cam;
     public SonicSoundsControl Sounds;
     public ActionManager Actions;
@@ -49,6 +48,7 @@ public class Objects_Interaction : MonoBehaviour {
     public PauseCotrol PauseCotrol;
     public Text RingsCounter;
     public Text ScoreCounter;
+    public DebugUI debug;
 
     public static int RingAmount { get; set; }
     public static int Score { get; set; }
@@ -62,6 +62,8 @@ public class Objects_Interaction : MonoBehaviour {
     float CamInitialDistance;
     Vector3 InitialGravity;
     float InitialAcell;
+    public float boostAmount { get; private set; } = 100;
+    public bool boosting { get; private set; }
 
     private void Awake()
     {
@@ -91,6 +93,77 @@ public class Objects_Interaction : MonoBehaviour {
             updateTargets = false;
         }
 
+        //Boost
+        if (!Inp.LockInput && Input.GetAxisRaw("R2") > 0.9f)
+        {
+            Player.GroundedTime = 0;
+        }
+        if (boostAmount > 0)
+        {
+            if (!Inp.LockInput && Input.GetAxisRaw("R2") > 0.9f)
+            {
+                if (Actions.Action == 0 || Actions.Action == 1)
+                {
+                    if (Actions.Action00.sounds.Source2.clip != Actions.Action00.sounds.Boost)
+                    {
+                        Actions.Action00.sounds.Source2.Stop();
+                    }
+                    if (!Actions.Action00.sounds.Source2.isPlaying)
+                    {
+                        Actions.Action00.sounds.BoostSound();
+                        Actions.Action00.sounds.CombatVoicePlay();
+                    }
+                    boosting = true;
+                    boostAmount -= 12.5f;
+                    Actions.ChangeAction(0);
+                    
+                    Player.rigidbody.velocity = Actions.Action00.CharacterAnimator.transform.forward * Player.MaxSpeed;
+                    Actions.Action01.JumpBall.SetActive(false);
+                    if (!Player.Grounded)
+                    {
+                        Actions.Action00.CharacterAnimator.SetInteger("Action", -1);
+                        Actions.Action00.CharacterAnimator.SetInteger("SpeedAnim", 2);
+                    }
+                    else
+                    {
+                        Actions.Action00.CharacterAnimator.SetInteger("Action", 0);
+                    }
+                }
+                else
+                {
+                    boosting = false;
+                    if (!Inp.LockInput)
+                    {
+                        Actions.Action00.CharacterAnimator.SetInteger("SpeedAnim", 0);
+                    }
+                }
+            }
+            else
+            {
+                boosting = false;
+                if (!Inp.LockInput)
+                {
+                    Actions.Action00.CharacterAnimator.SetInteger("SpeedAnim", 0);
+                }
+            }
+        }
+        else
+        {
+            boosting = false;
+            if (!Inp.LockInput)
+            {
+                Actions.Action00.CharacterAnimator.SetInteger("SpeedAnim", 0);
+            }
+        }
+
+        if (!boosting && Player.Grounded && Player.GroundedTime > 25) 
+        {
+            boostAmount += 10;
+        }
+        Debug.Log(boostAmount);
+        if (boostAmount > 100) { boostAmount = 100; }
+        if (boostAmount < 0) { boostAmount = 0; }
+
         //Set speed pad trackpad's offset
         SpeedPadTrack.SetTextureOffset("_MainTex", new Vector2(0, -Time.time) * 3);
         DashRingMaterial.SetColor("_EmissionColor", (Mathf.Sin(Time.time * 15) * 1.3f) * DashRingLightsColor);
@@ -107,27 +180,36 @@ public class Objects_Interaction : MonoBehaviour {
                 {
                     if (Player.Grounded)
                     {
-                        Player.rigidbody.velocity = PlayerSkin.forward * lockedSpeedValue.magnitude;
+                        Player.rigidbody.velocity = Actions.Action00.CharacterAnimator.transform.forward * lockedSpeedValue.magnitude;
                     }
                 }
             }
             else
             {
                 lockedSpeed = false;
+                Actions.Action00.CharacterAnimator.SetInteger("SpeedAnim", 0);
             }
         }
 
-        if (GameObject.FindGameObjectWithTag("WaterSurface"))
+        if (GameObject.FindGameObjectsWithTag("WaterSurface").Length > 0)
         {
-            MeshCollider surfaceMesh = GameObject.FindGameObjectWithTag("WaterSurface").gameObject.GetComponent<MeshCollider>();
-            if (Player.XZmag >= Player.TopSpeed)
+            GameObject[] surfaceMesh = GameObject.FindGameObjectsWithTag("WaterSurface");
+            for (int i = 0; i < surfaceMesh.Length; i++)
             {
-                surfaceMesh.enabled = true;
+                if (Player.XZmag >= Player.TopSpeed)
+                {
+                    surfaceMesh[i].GetComponent<MeshCollider>().enabled = true;
+                }
+                else
+                {
+                    surfaceMesh[i].GetComponent<MeshCollider>().enabled = false;
+                }
             }
-            else
-            {
-                surfaceMesh.enabled = false;
-            }
+        }
+
+        if (debug != null && Input.GetKeyDown(KeyCode.F5))
+        {
+            debug.transform.parent.gameObject.SetActive(!debug.transform.parent.gameObject.activeSelf);
         }
     }
 
@@ -165,8 +247,7 @@ public class Objects_Interaction : MonoBehaviour {
             PauseCotrol.StageSelector.SetActive(true);
             Player.rigidbody.velocity = Vector3.zero;
             transform.position = col.transform.position;
-            transform.rotation = col.transform.rotation;
-            PlayerSkin.rotation = col.transform.rotation;
+            Actions.Action00.CharacterAnimator.transform.rotation = col.transform.rotation;
         }
 
         if(col.tag == "SpeedPad")
@@ -179,7 +260,6 @@ public class Objects_Interaction : MonoBehaviour {
 			}
             if(col.GetComponent<SpeedPadData>() != null)
             {
-                Player.transform.rotation = col.transform.rotation;
                 Actions.Action00.CharacterAnimator.transform.rotation = col.transform.rotation;
 
                 if (col.GetComponent<SpeedPadData>().LockControl)
@@ -222,14 +302,15 @@ public class Objects_Interaction : MonoBehaviour {
                 {
                     case AnimationType.Basic:
                         Actions.Action00.CharacterAnimator.SetInteger("Action", 0);
+                        Actions.Action00.CharacterAnimator.SetInteger("SpeedAnim", 0);
                         break;
                     case AnimationType.Dynamic:
+                        Actions.Action00.CharacterAnimator.SetInteger("SpeedAnim", 1);
                         Actions.Action00.CharacterAnimator.SetInteger("Action", -1);
-                        Actions.Action00.CharacterAnimator.SetBool("Grounded", false);
                         break;
                     case AnimationType.DashPad:
-                        Actions.Action00.CharacterAnimator.SetInteger("Action", -2);
-                        Actions.Action00.CharacterAnimator.SetBool("Grounded", false);
+                        Actions.Action00.CharacterAnimator.SetInteger("SpeedAnim", 2);
+                        Actions.Action00.CharacterAnimator.SetInteger("Action", -1);
                         break;
                     case AnimationType.Rolling:
                         Actions.Action00.CharacterAnimator.SetInteger("Action", 1);
@@ -504,10 +585,12 @@ public class Objects_Interaction : MonoBehaviour {
 
                     if (spring.AnimationType == AnimationType.Basic)
                     {
+                        Actions.Action00.CharacterAnimator.SetInteger("SpeedAnim", 0);
                         Actions.Action00.CharacterAnimator.SetInteger("Action", 0);
                     }
                     else if (spring.AnimationType == AnimationType.Dynamic)
                     {
+                        Actions.Action00.CharacterAnimator.SetInteger("SpeedAnim", 1);
                         Actions.Action00.CharacterAnimator.SetInteger("Action", -1);
                     }
                     else if (spring.AnimationType == AnimationType.Rolling)
@@ -584,11 +667,6 @@ public class Objects_Interaction : MonoBehaviour {
 				}
 			}
 		}
-
-        if (col.tag == "2DTrigger")
-        {
-            PlayerSkin.rotation = col.transform.rotation;
-        }
 
         if (col.tag == "GravitySet")
         {

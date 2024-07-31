@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System.IO;
 
 public class TitleScreenControl : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class TitleScreenControl : MonoBehaviour {
     public Animator PressStartAnim;
     public Animator SonicAnim;
     public float PressStartIncreaceSpeed;
+    public string StageName;
     public UnityStandardAssets.Utility.AutoMoveAndRotate HedgeSpin;
     public float LogoRotationAccell;
     public float EndStageAt;
@@ -55,6 +57,10 @@ public class TitleScreenControl : MonoBehaviour {
                 if (SonicAnim != null)
                 {
                     SonicAnim.SetBool("Start", true);
+                }
+                if (File.Exists("Saves/CurrentStage.txt"))
+                {
+                    File.WriteAllText("Saves/CurrentStage.txt", StageName);
                 }
             }
         }

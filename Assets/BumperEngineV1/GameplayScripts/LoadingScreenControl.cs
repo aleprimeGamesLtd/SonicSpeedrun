@@ -69,11 +69,28 @@ public class LoadingScreenControl : MonoBehaviour {
 
     void StageTitle()
     {
-        if (currentStage == "IntroZone") { StageName1txt.text = "Intro Zone"; StageName2txt.text = "Act 1"; }
-        else if (currentStage == "DemoZone") { StageName1txt.text = "Demo Zone"; StageName2txt.text = "Act 1"; }
-        else if (currentStage == "BlushCanyonZone") { StageName1txt.text = "Blush Canyon"; StageName2txt.text = "Act 1"; }
-        else if (currentStage == "GreenHill1") { StageName1txt.text = "Green Hill"; StageName2txt.text = "Act 1"; }
-        else if (currentStage == "CrisisCity") { StageName1txt.text = "Crisis City"; StageName2txt.text = "Act 1"; }
-        else { StageName1txt.text = "Unknown"; StageName2txt.text = "Act 1"; }
+        switch (currentStage)
+        {
+            case "GreenHill1":
+                StageName1txt.text = "Green Hill";
+                StageName2txt.text = "Zone";
+                break;
+            case "CrisisCity":
+                StageName1txt.text = "Crisis";
+                StageName2txt.text = "City";
+                break;
+            case "WindmillIsle1":
+                StageName1txt.text = "Windmill";
+                StageName2txt.text = "Isle";
+                break;
+            case "WaveOcean":
+                StageName1txt.text = "Wave";
+                StageName2txt.text = "Ocean";
+                break;
+            default:
+                StageName1txt.text = "";
+                StageName2txt.text = "";
+                break;
+        }
     }
 }

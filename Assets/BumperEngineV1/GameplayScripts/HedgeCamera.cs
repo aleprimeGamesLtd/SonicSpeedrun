@@ -3,19 +3,19 @@ using System.Collections;
 
 public class HedgeCamera : MonoBehaviour {
 
-	private bool GoingTowardsCamera;
+    private bool GoingTowardsCamera;
 
     public Transform Target;
     public PlayerBhysics Player;
     public Transform Skin;
-	public ActionManager Actions;
+    public ActionManager Actions;
 
     Transform CameraTrans;
     public bool UseAutoRotation;
     public bool UseCurve;
     public float AutoXRotationSpeed;
     public AnimationCurve AutoXRotationCurve;
-	public bool LockHeight;
+    public bool LockHeight;
     public float LockHeightSpeed;
     public bool MoveHeightBasedOnSpeed;
     public float HeightToLock;
@@ -72,7 +72,7 @@ public class HedgeCamera : MonoBehaviour {
     float InitialLockedRotationSpeed;
     float InitialRotationSpeed;
     float InitialMoveSpeed;
-    float InitialFiledOfView;
+    public float InitialFieldOfView { get; private set; }
     float newX;
     float neoX;
 
@@ -97,8 +97,7 @@ public class HedgeCamera : MonoBehaviour {
         InitialLockedRotationSpeed = LockedRotationSpeed;
         InitialMoveSpeed = moveSpeed;
         InitialRotationSpeed = rotSpeed;
-        InitialFiledOfView = GetComponent<Camera>().fieldOfView;
-        RotateDirection(Skin.forward, (int)CameraMoveSpeed, HeightToLock);
+        InitialFieldOfView = GetComponent<Camera>().fieldOfView;
     }
 
     void LateUpdate () {
@@ -116,7 +115,7 @@ public class HedgeCamera : MonoBehaviour {
         }
         else
         {
-            GetComponent<Camera>().fieldOfView = InitialFiledOfView + Player.rigidbody.velocity.magnitude / 10;
+            GetComponent<Camera>().fieldOfView = InitialFieldOfView + Player.rigidbody.velocity.magnitude / 10;
         }
         
     }

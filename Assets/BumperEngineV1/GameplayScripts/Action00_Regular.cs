@@ -9,17 +9,10 @@ public class Action00_Regular : MonoBehaviour {
     PlayerBhysics Player;
     ActionManager Actions;
 	CameraControl Cam;
-    Objects_Interaction interactions;
+    public Objects_Interaction interactions {  get; private set; }
     public SonicSoundsControl sounds;
-    public int quickstep;
-    public QuickstepTrigger TriggerL;
-    public QuickstepTrigger TriggerR;
-    Quaternion quickstepRot;
-    Vector3 quickstepVel;
-    Vector3 previousVel;
 
     public float skinRotationSpeed;
-    public float quicksteptime;
     Action01_Jump JumpAction;
     Quaternion CharRot;
 
@@ -55,7 +48,7 @@ public class Action00_Regular : MonoBehaviour {
 
         if(Player.SpeedMagnitude < Player.MaxSpeed && interactions.speedSec)
 		{
-            Player.rigidbody.velocity += interactions.PlayerSkin.rotation * Vector3.forward * 1.5f;
+            //Player.rigidbody.velocity += CharacterAnimator.transform.rotation * Vector3.forward;
 		}
 
         //Skidding
@@ -93,55 +86,6 @@ public class Action00_Regular : MonoBehaviour {
 
         }
 
-        if (Input.GetButton("L1") || Input.GetButton("R1"))
-        {
-            quicksteptime += 1;
-            if (Player.Grounded && !interactions.Mode2D && interactions.speedSec && !GetComponent<LevelProgressControl>().readyForNextStage)
-            {
-                quickstepRot = interactions.PlayerSkin.rotation;
-                if (quicksteptime == 1)
-                {
-                    sounds.JumpingVoicePlay ();
-                    sounds.JumpSound();
-                    previousVel = Player.rigidbody.velocity;
-                }
-                
-                if (quicksteptime <= 6 && quicksteptime != 0)
-                {
-                    interactions.PlayerSkin.rotation = quickstepRot;
-                    transform.position += quickstepRot * quickstepVel;
-
-                    if (Input.GetButton("L1"))
-                    {
-                        if (quickstep != TriggerL.Value){ quickstepVel = Vector3.left * 2; }
-                        else{ quickstepVel = Vector3.zero; }
-                        CharacterAnimator.SetInteger("QuickStep", -1);
-                    }
-                    if (Input.GetButton("R1"))
-                    {
-                        if (quickstep != TriggerR.Value){ quickstepVel = Vector3.right * 2; }
-                        else{ quickstepVel = Vector3.zero; }
-                        CharacterAnimator.SetInteger("QuickStep", 1);
-                    }
-                }
-                else
-                {
-                    CharacterAnimator.SetInteger("QuickStep", 0);
-                    Player.rigidbody.velocity = previousVel;
-                }
-            }
-            else
-            {
-                CharacterAnimator.SetInteger("QuickStep", 0);
-                quicksteptime = 0;
-            }
-        }
-        else
-        {
-            quicksteptime = 0;
-            CharacterAnimator.SetInteger("QuickStep", 0);
-        }
-
     }
 
     void Update()
@@ -161,9 +105,21 @@ public class Action00_Regular : MonoBehaviour {
 		CharacterAnimator.SetFloat("XZSpeed", Mathf.Abs((Player.rigidbody.velocity.x+Player.rigidbody.velocity.z)/2));
         CharacterAnimator.SetFloat("GroundSpeed", Player.rigidbody.velocity.magnitude);
 		CharacterAnimator.SetFloat("HorizontalInput", Input.GetAxis("Horizontal")*Player.rigidbody.velocity.magnitude);
-        if (Player.KeepNormalCounter > 15 || Player.KeepNormalCounter == 0)
-        {
-            CharacterAnimator.SetBool("Grounded", Player.Grounded);
+		if (CharacterAnimator.GetInteger("SpeedAnim") == 0)
+		{
+			if (Player.KeepNormalCounter <= 15)
+			{
+				CharacterAnimator.SetBool("Grounded", true);
+			}
+			else
+			{
+                CharacterAnimator.SetBool("Grounded", false);
+            }
+        }
+		else
+		{
+            CharacterAnimator.SetBool("Grounded", false);
+			CharacterAnimator.SetInteger("Action", -1);
         }
         CharacterAnimator.SetFloat("NormalSpeed", Player.b_normalSpeed + SkiddingStartPoint);
 
@@ -176,13 +132,17 @@ public class Action00_Regular : MonoBehaviour {
 		}
 
         //Do Spindash
-		if (Input.GetAxisRaw("Triggers") < 0 && Player.Grounded && Player.GroundNormal.y > MaximumSlope && interactions.speedSec == false && !GetComponent<LevelProgressControl>().readyForNextStage && !GetComponent<PlayerBinput>().LockInput) { Actions.ChangeAction(3); Actions.Action03.InitialEvents(); }
+		if (Input.GetButton("X") && Player.Grounded && Player.GroundNormal.y > MaximumSlope && interactions.speedSec == false && !GetComponent<LevelProgressControl>().readyForNextStage && !GetComponent<PlayerBinput>().LockInput) 
+        {
+            Actions.ChangeAction(3); Actions.Action03.InitialEvents();
+        }
+
         //Check if rolling
         if (Player.Grounded && Player.isRolling) { CharacterAnimator.SetInteger("Action", 1); }
         CharacterAnimator.SetBool("isRolling", Player.isRolling);
 
         //Play Rolling Sound
-		if (Input.GetAxisRaw("Triggers") > 0.9f && Player.Grounded && Player.LTtime == 1 && (GetComponent<Rigidbody>().velocity.sqrMagnitude > Player.RollingStartSpeed) && !GetComponent<PlayerBinput>().LockInput) 
+		if (Input.GetAxisRaw("L2") > 0.9f && Player.Grounded && Player.LTtime == 1 && (GetComponent<Rigidbody>().velocity.sqrMagnitude > Player.RollingStartSpeed) && !GetComponent<PlayerBinput>().LockInput) 
 		{
 			sounds.SpinningSound(); 
 		}
@@ -197,7 +157,7 @@ public class Action00_Regular : MonoBehaviour {
             ProgressData progress = JsonUtility.FromJson<ProgressData>(File.ReadAllText("Saves/CurrentProgress.json"));
             Vector3 Rot = new Vector3(progress.rotX, progress.rotY, progress.rotZ);
             CharacterAnimator.transform.rotation = Quaternion.Euler(Rot);
-            Cam.Cam.FollowDirection(Cam.Cam.HeightToLock, 100);
+			transform.rotation = Quaternion.Euler(Rot);
         }
         else
         {
@@ -277,7 +237,4 @@ public class Action00_Regular : MonoBehaviour {
 
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-    }
 }

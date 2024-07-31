@@ -73,7 +73,7 @@ public class Action04_Hurt : MonoBehaviour {
             }
         }
 
-        GetComponent<PlayerBinput>().LockInputForAWhile(120, true);
+        GetComponent<PlayerBinput>().LockInputForAWhile(50, true);
 
     }
 }
